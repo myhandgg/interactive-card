@@ -1,0 +1,273 @@
+*{
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+:root {
+    --Linear-gradient: hsl(249, 99%, 64%) to hsl(278, 94%, 30%); /*(active input border)*/
+    --Red: hsl(0, 100%, 66%); /*(input errors) */
+    --White: hsl(0, 0%, 100%);
+    --Light-grayish-violet: hsl(270, 3%, 87%);
+    --Dark-grayish-violet: hsl(279, 6%, 55%);
+    --Very-dark-violet: hsl(278, 68%, 11%);
+    --main-font: 18px;
+    --card-width: 447px;
+    --card-height:245px;
+}
+
+body {
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+/* Start left side */
+
+.parent {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.parent .left-side {
+    position: relative;
+    background-image: url(images/bg-main-desktop.png);
+    height: 100vh;
+    width:483px;
+}
+
+.parent .left-side .card1 {
+    background-image: url(images/bg-card-front.png);
+    position: absolute;
+    top: 175px;
+    right:-100px;
+    padding: 30px;
+    width: var(--card-width);
+    height: var(--card-height);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.parent .left-side .card1 img{
+    margin-bottom: 30px;
+    width: 66px;
+}
+
+.parent .left-side .card1 img + p{
+    color: var(--White);
+    font-size: 26px;
+    letter-spacing: 5px;
+    margin:0;
+}
+
+.parent .left-side .card1 .footer {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--Light-grayish-violet);
+}
+
+.parent .left-side .card1 .footer p{
+    margin: 0;
+}
+
+.parent .left-side .card2 {
+    background-image: url(images/bg-card-back.png);
+    position: absolute;
+    right: -200px;
+    top: 450px;
+    width: var(--card-width);
+    height: var(--card-height);
+}
+
+.parent .left-side .card2 p{
+    position: absolute;
+    right: 60px;
+    bottom: 100px;
+    color: var(--White);
+}
+
+/* End left side */
+/* Start right side */
+
+.parent .right-side{
+    padding: 60px;
+    flex-basis: 40%;
+}
+
+.parent .right-side p {
+    color: var(--Very-dark-violet);
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+.parent .right-side .input1 input ,
+.parent .right-side .input2 input {
+    padding: 12px;
+    border: 1px solid var(--Light-grayish-violet);
+    border-radius: 5px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.parent .right-side input::placeholder{
+    color: var(--Dark-grayish-violet);
+} 
+
+.parent .right-side input:focus ,
+.parent .right-side .date input:focus ,
+.parent .right-side .date .cvc-input input:focus  {
+    outline:none;
+    border-color: hsl(278, 94%, 30%) !important;
+}
+
+.parent .right-side .date {
+    display: flex;
+    gap: 10px;
+}
+
+.parent .right-side .date .text .holder{
+    display: flex;
+    gap: 10px;
+}
+
+.parent .right-side .date input ,
+.parent .right-side .date input {
+    padding: 12px;
+    width: 80px;
+    border: 1px solid var(--Light-grayish-violet);
+    border-radius: 5px;
+}
+
+.parent .right-side .date .cvc-input input{
+    width:100%;
+    padding: 12px;
+    border: 1px solid var(--Light-grayish-violet);
+    border-radius: 5px;
+}
+
+.parent .right-side .confirm {
+    padding: 15px;
+    background-color: var(--Very-dark-violet);
+    color: var(--White);
+    text-align: center;
+    margin-top: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* End right side */
+
+.parent .result {
+    flex-basis: 40%;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    display: none;
+}
+
+.parent .result h2 {
+    letter-spacing: 5px;
+    color: var(--Very-dark-violet);
+    text-transform: uppercase;
+}
+
+.parent .result p {
+    color: var(--Dark-grayish-violet);
+}
+
+.parent .result .continue {
+    padding: 15px;
+    background-color: var(--Very-dark-violet);
+    color: var(--White);
+    text-align: center;
+    margin-top: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 300px;
+}
+
+@media (max-width:1024px){
+    .parent{
+        flex-direction: column;
+        gap: 110px;
+    }
+    .parent .left-side{
+        background-image: url(images/bg-main-mobile.png);
+        width: 100%;
+        height: 240px;
+        background-repeat: repeat;
+    }
+    .parent .left-side .card1{
+        left: 180px;
+        top: 125px;
+        transform: scale(.9);
+        z-index: 1;
+    }
+    .parent .left-side .card2{
+        top: 0;
+        transform: scale(.9);
+        right: 170px;
+    }
+}
+
+@media (max-width:768px){
+    .parent .left-side .card1{
+        left: 70px;
+    }
+    .parent .left-side .card2{
+        right: 60px;
+    }
+}
+
+@media (max-width:425px){
+    .parent .left-side{
+        width:100%;
+        background-repeat: repeat;
+    }
+    .parent .right-side{
+        padding: 20px;
+    }
+    .parent .left-side .card1 {
+        transform: scale(.8);
+        left: -30px;
+        top: 110px;
+    }
+    .parent .left-side .card2 {
+        transform: scale(.8);
+        right: -40px;
+    }
+}
+
+@media (max-width:375px){
+    .parent .left-side .card1 ,
+    .parent .left-side .card2{
+        transform: scale(.7);
+    }
+    .parent .left-side .card1{
+        left: -50px;
+    }
+    .parent .left-side .card2{
+        left: -20px;
+    }
+    .parent .right-side .date .month-input input,
+    .parent .right-side .date .year-input input {
+        width: 65px;
+    }
+}
+
+@media (max-width:320px){
+    .parent .left-side .card1,
+    .parent .left-side .card2 {
+        transform: scale(.6);
+    }
+    .parent .left-side .card1 {
+        left: -70px;
+    }
+    .parent .left-side .card2 {
+        left: -50px;
+    }
+}
